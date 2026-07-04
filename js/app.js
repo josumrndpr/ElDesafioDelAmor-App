@@ -250,7 +250,7 @@
     regPromise.then((reg) => {
       reg.showNotification('🔔 Recordatorio activado', {
         body: 'Te recordaremos cada día hacer tu desafío.',
-        icon: '/assets/icons/icon-192.png',
+        icon: '/ElDesafioDelAmor-App/assets/icons/icon-192.png',
         tag: 'lovedare-reminder-setup',
         vibrate: [200, 100, 200]
       });

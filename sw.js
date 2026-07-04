@@ -1,35 +1,40 @@
 /* ============================================
    sw.js — Service Worker (Cache-First + Stale-While-Revalidate)
-   The Love Dare App v2
+   The Love Dare App v3
    ============================================ */
 
-const CACHE_NAME = 'lovedare-v2';
+const CACHE_NAME = 'lovedare-v3';
+
+// Derive base path dynamically from SW's own location
+// e.g. https://josumrndpr.github.io/ElDesafioDelAmor-App/sw.js -> /ElDesafioDelAmor-App
+const BASE = self.location.pathname.replace(/\/sw\.js$/, '');
+const P = (p) => BASE + p;
 
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/favicon.ico',
-  '/css/variables.css',
-  '/css/reset.css',
-  '/css/layout.css',
-  '/css/components.css',
-  '/css/animations.css',
-  '/css/pages.css',
-  '/js/ui.js',
-  '/js/store.js',
-  '/js/data.js',
-  '/js/theme.js',
-  '/js/router.js',
-  '/js/confetti.js',
-  '/js/day-view.js',
-  '/js/journal.js',
-  '/js/stats-view.js',
-  '/js/app.js',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png',
-  '/assets/icons/icon-192.svg',
-  '/assets/icons/icon-512.svg'
+  P(''),
+  P('/'),
+  P('/index.html'),
+  P('/manifest.json'),
+  P('/favicon.ico'),
+  P('/css/variables.css'),
+  P('/css/reset.css'),
+  P('/css/layout.css'),
+  P('/css/components.css'),
+  P('/css/animations.css'),
+  P('/css/pages.css'),
+  P('/js/ui.js'),
+  P('/js/store.js'),
+  P('/js/data.js'),
+  P('/js/theme.js'),
+  P('/js/router.js'),
+  P('/js/confetti.js'),
+  P('/js/day-view.js'),
+  P('/js/journal.js'),
+  P('/js/stats-view.js'),
+  P('/js/sounds.js'),
+  P('/js/app.js'),
+  P('/assets/icons/icon-192.png'),
+  P('/assets/icons/icon-512.png')
 ];
 
 // Install: cache all assets
@@ -62,11 +67,14 @@ self.addEventListener('fetch', (event) => {
   // Only handle same-origin GET requests
   if (url.origin !== self.location.origin || request.method !== 'GET') return;
 
+  // Only handle requests within our app scope
+  if (!url.pathname.startsWith(BASE + '/') && !url.pathname.startsWith(BASE)) return;
+
   // Skip ?v= query param for matching (cache-busting)
   const cleanUrl = url.origin + url.pathname;
 
   // API / data requests fallback to network only
-  if (url.pathname.startsWith('/api/')) {
+  if (url.pathname.startsWith(BASE + '/api/')) {
     event.respondWith(networkFirst(request, cleanUrl));
     return;
   }

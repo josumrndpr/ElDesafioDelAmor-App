@@ -1,0 +1,199 @@
+/* ============================================
+   variables.css — Design Tokens (Material Design 3)
+   The Love Dare App
+   ============================================ */
+
+:root {
+  /* === COLOR PALETTE (Light) === */
+  --md-primary: #D32F2F;
+  --md-primary-rgb: 211, 47, 47;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #FFCDD2;
+  --md-on-primary-container: #410002;
+
+  --md-secondary: #7B1FA2;
+  --md-secondary-rgb: 123, 31, 162;
+  --md-on-secondary: #FFFFFF;
+  --md-secondary-container: #E1BEE7;
+  --md-on-secondary-container: #2D004F;
+
+  --md-tertiary: #F9A825;
+  --md-tertiary-rgb: 249, 168, 37;
+  --md-on-tertiary: #FFFFFF;
+  --md-tertiary-container: #FFF3CD;
+  --md-on-tertiary-container: #3E2D00;
+
+  --md-error: #BA1A1A;
+  --md-on-error: #FFFFFF;
+
+  --md-success: #2E7D32;
+  --md-on-success: #FFFFFF;
+  --md-success-container: #A5D6A7;
+
+  --md-surface: #FFFBFE;
+  --md-on-surface: #1C1B1F;
+  --md-surface-variant: #F3EDF7;
+  --md-on-surface-variant: #49454F;
+
+  --md-outline: #79747E;
+  --md-outline-variant: #CAC4D0;
+
+  --md-background: #FFFBFE;
+  --md-on-background: #1C1B1F;
+
+  --md-inverse-surface: #313033;
+  --md-inverse-on-surface: #F4EFF4;
+  --md-inverse-primary: #FFB3AB;
+
+  /* === SHADOWS (MD3 elevation) === */
+  --md-elevation-level0: none;
+  --md-elevation-level1: 0 1px 3px 1px rgba(0,0,0,0.15), 0 1px 2px 0 rgba(0,0,0,0.30);
+  --md-elevation-level2: 0 2px 6px 2px rgba(0,0,0,0.15), 0 1px 2px 0 rgba(0,0,0,0.30);
+  --md-elevation-level3: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px 0 rgba(0,0,0,0.30);
+  --md-elevation-level4: 0 6px 10px 4px rgba(0,0,0,0.15), 0 2px 3px 0 rgba(0,0,0,0.30);
+  --md-elevation-level5: 0 8px 12px 6px rgba(0,0,0,0.15), 0 4px 4px 0 rgba(0,0,0,0.30);
+
+  /* === TYPOGRAPHY === */
+  --font-display: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', monospace;
+
+  /* Type scale */
+  --text-display-large: 2.25rem;
+  --text-display-medium: 1.75rem;
+  --text-display-small: 1.375rem;
+  --text-headline-large: 1.5rem;
+  --text-headline-medium: 1.25rem;
+  --text-headline-small: 1rem;
+  --text-title-large: 1.375rem;
+  --text-title-medium: 1rem;
+  --text-title-small: 0.875rem;
+  --text-body-large: 1rem;
+  --text-body-medium: 0.875rem;
+  --text-body-small: 0.75rem;
+  --text-label-large: 0.875rem;
+  --text-label-medium: 0.75rem;
+  --text-label-small: 0.625rem;
+
+  /* Line heights */
+  --lh-display: 1.2;
+  --lh-headline: 1.3;
+  --lh-title: 1.4;
+  --lh-body: 1.5;
+  --lh-label: 1.2;
+
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* === SPACING (8px grid) === */
+  --sp-0: 0;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 40px;
+  --sp-8: 48px;
+  --sp-9: 56px;
+  --sp-10: 64px;
+
+  /* === BORDER RADIUS === */
+  --radius-none: 0;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* === ANIMATION === */
+  --duration-short: 200ms;
+  --duration-medium: 350ms;
+  --duration-long: 500ms;
+  --easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* === LAYOUT === */
+  --nav-height: 64px;
+  --bottom-nav-height: 80px;
+  --top-bar-height: 56px;
+  --max-content-width: 480px;
+  --max-desktop-width: 840px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+
+  /* === CUSTOM DESIGN TOKENS === */
+  --top-bar-bg: rgba(255, 255, 255, 0.85);
+  --top-bar-text: #1C1B1F;
+  --top-bar-divider: none;
+  --top-bar-blur: blur(12px);
+  --day-header-bg: #c97b84;
+  --day-header-text: #FFFFFF;
+  --day-header-number-color: rgba(255,255,255,0.8);
+  --banner-gradient: linear-gradient(135deg, var(--md-primary-container), var(--md-secondary-container));
+}
+
+/* === DARK THEME === */
+[data-theme="dark"] {
+  --md-primary: #FFB3AB;
+  --md-primary-container: #93000A;
+  --md-on-primary-container: #FFDAD6;
+  --md-secondary: #CE93D8;
+  --md-secondary-container: #4A0072;
+  --md-on-secondary-container: #F3E5F5;
+  --md-tertiary: #FFD54F;
+  --md-tertiary-container: #5C4800;
+  --md-on-tertiary-container: #FFF8E1;
+  --md-surface: #1C1B1F;
+  --md-on-surface: #E6E1E5;
+  --md-surface-variant: #2B2930;
+  --md-on-surface-variant: #CAC4D0;
+  --md-background: #1C1B1F;
+  --md-on-background: #E6E1E5;
+  --md-outline: #938F99;
+  --md-outline-variant: #49454F;
+  --md-inverse-surface: #E6E1E5;
+  --md-inverse-on-surface: #313033;
+  --md-inverse-primary: #D32F2F;
+  --md-success: #81C784;
+  --md-success-container: #1B5E20;
+  --md-error: #FFB4AB;
+  --md-on-error: #690005;
+
+  --md-elevation-level1: 0 1px 3px 1px rgba(0,0,0,0.3), 0 1px 2px 0 rgba(0,0,0,0.5);
+  --md-elevation-level2: 0 2px 6px 2px rgba(0,0,0,0.3), 0 1px 2px 0 rgba(0,0,0,0.5);
+  --md-elevation-level3: 0 4px 8px 3px rgba(0,0,0,0.4), 0 1px 3px 0 rgba(0,0,0,0.5);
+  --md-elevation-level4: 0 6px 10px 4px rgba(0,0,0,0.4), 0 2px 3px 0 rgba(0,0,0,0.5);
+  --md-elevation-level5: 0 8px 12px 6px rgba(0,0,0,0.4), 0 4px 4px 0 rgba(0,0,0,0.5);
+
+  --top-bar-bg: rgba(0, 0, 0, 0.8);
+  --top-bar-text: #FFFFFF;
+  --top-bar-divider: none;
+  --day-header-bg: #8B6E6E;
+}
+
+/* === RESPONSIVE TYPE === */
+@media (min-width: 600px) {
+  :root {
+    --text-display-large: 2.75rem;
+    --text-display-medium: 2rem;
+    --text-display-small: 1.5rem;
+    --text-headline-large: 1.75rem;
+    --text-headline-medium: 1.375rem;
+  }
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-short: 0ms;
+    --duration-medium: 0ms;
+    --duration-long: 0ms;
+  }
+}

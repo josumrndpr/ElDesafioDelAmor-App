@@ -15,27 +15,15 @@
   "screenshots": [],
   "icons": [
     {
-      "src": "assets/icons/icon-192.png",
+      "src": "/assets/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "assets/icons/icon-512.png",
+      "src": "/assets/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "assets/icons/icon-192.svg",
-      "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "assets/icons/icon-512.svg",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],
@@ -47,7 +35,7 @@
       "url": "/#/home",
       "icons": [
         {
-          "src": "assets/icons/icon-192.png",
+          "src": "/assets/icons/icon-192.png",
           "sizes": "192x192"
         }
       ]
@@ -59,7 +47,7 @@
       "url": "/#/progress",
       "icons": [
         {
-          "src": "assets/icons/icon-192.png",
+          "src": "/assets/icons/icon-192.png",
           "sizes": "192x192"
         }
       ]
@@ -71,7 +59,7 @@
       "url": "/#/journal",
       "icons": [
         {
-          "src": "assets/icons/icon-192.png",
+          "src": "/assets/icons/icon-192.png",
           "sizes": "192x192"
         }
       ]

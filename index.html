@@ -113,13 +113,21 @@
   <script src="js/sounds.js?v=1"></script>
   <script src="js/app.js?v=7"></script>
 
-  <!-- Service Worker registration -->
+  <!-- Service Worker registration + Install prompt -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js').catch(() => {});
       });
     }
+
+    // Capturar beforeinstallprompt para forzar instalación
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      console.log('✅ PWA listo para instalar');
+    });
   </script>
 </body>
 </html>

@@ -1,4 +1,115 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <rect width="512" height="512" rx="80" fill="#D32F2F"/>
-  <text x="256" y="310" font-family="Arial, sans-serif" font-size="260" font-weight="bold" text-anchor="middle" fill="white">💕</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2D0A0A"/>
+      <stop offset="50%" stop-color="#5C1010"/>
+      <stop offset="100%" stop-color="#8B1A1A"/>
+    </linearGradient>
+    <linearGradient id="ringGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="50%" stop-color="#F4A460"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+    <linearGradient id="ringGold2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="50%" stop-color="#DAA520"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+    <linearGradient id="flameGrad" x1="0.5" y1="1" x2="0.5" y2="0">
+      <stop offset="0%" stop-color="#FF4500"/>
+      <stop offset="40%" stop-color="#FF6B35"/>
+      <stop offset="70%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FFF8DC"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="70%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="flameBlur">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background rounded rectangle -->
+  <rect width="512" height="512" rx="80" fill="url(#bg)"/>
+
+  <!-- Subtle radial glow behind rings -->
+  <circle cx="256" cy="230" r="180" fill="url(#glow)" opacity="0.15"/>
+
+  <!-- === FLAMES === -->
+  <!-- Flame left side -->
+  <g filter="url(#flameBlur)" opacity="0.85">
+    <path d="M180 310 Q170 280 175 250 Q178 235 185 220 Q190 208 195 195 Q198 188 200 180 Q205 170 208 165 Q215 155 218 170 Q220 178 222 190 Q225 205 228 215 Q230 222 228 230 Q225 240 220 248 Q215 258 210 265 Q205 275 200 285 Q195 295 192 305 Z" fill="url(#flameGrad)" opacity="0.7"/>
+    <path d="M195 300 Q190 275 195 255 Q198 242 202 230 Q206 218 208 210 Q210 205 212 200 Q215 192 217 200 Q218 210 216 225 Q214 240 212 252 Q210 262 206 272 Q202 282 198 292 Z" fill="#FFD700" opacity="0.5"/>
+  </g>
+
+  <!-- Flame right side -->
+  <g filter="url(#flameBlur)" opacity="0.85">
+    <path d="M332 310 Q342 280 337 250 Q334 235 327 220 Q322 208 317 195 Q314 188 312 180 Q307 170 304 165 Q297 155 294 170 Q292 178 290 190 Q287 205 284 215 Q282 222 284 230 Q287 240 292 248 Q297 258 302 265 Q307 275 312 285 Q317 295 320 305 Z" fill="url(#flameGrad)" opacity="0.7"/>
+    <path d="M317 300 Q322 275 317 255 Q314 242 310 230 Q306 218 304 210 Q302 205 300 200 Q297 192 295 200 Q294 210 296 225 Q298 240 300 252 Q302 262 306 272 Q310 282 314 292 Z" fill="#FFD700" opacity="0.5"/>
+  </g>
+
+  <!-- Small flame center-top -->
+  <g filter="url(#flameBlur)" opacity="0.6">
+    <path d="M248 175 Q250 160 253 148 Q255 140 256 135 Q257 140 259 148 Q262 160 264 175 Q260 178 256 179 Q252 178 248 175 Z" fill="#FF6B35" opacity="0.8"/>
+    <path d="M252 170 Q254 158 256 150 Q258 158 260 170 Q258 173 256 174 Q254 173 252 170 Z" fill="#FFD700" opacity="0.6"/>
+  </g>
+
+  <!-- === RINGS === -->
+  <!-- Ring 1 (left, slightly behind) -->
+  <g filter="url(#softGlow)">
+    <ellipse cx="220" cy="240" rx="70" ry="80" fill="none" stroke="url(#ringGold)" stroke-width="18" stroke-opacity="0.9"
+      stroke-dasharray="0 0" opacity="0.0">
+      <animate attributeName="opacity" values="0;0;1" dur="0.5s" fill="freeze"/>
+    </ellipse>
+    <ellipse cx="228" cy="242" rx="70" ry="80" fill="none" stroke="url(#ringGold)" stroke-width="16"
+      transform="rotate(-12 228 242)"/>
+  </g>
+
+  <!-- Ring 2 (right, slightly behind) -->
+  <g filter="url(#softGlow)">
+    <ellipse cx="284" cy="242" rx="70" ry="80" fill="none" stroke="url(#ringGold2)" stroke-width="16"
+      transform="rotate(12 284 242)"/>
+  </g>
+
+  <!-- Center diamond/gem -->
+  <g filter="url(#softGlow)">
+    <polygon points="256,190 276,230 256,270 236,230" fill="#FF6B35" opacity="0.9"/>
+    <polygon points="256,198 270,230 256,262 242,230" fill="#FFD700" opacity="0.4"/>
+  </g>
+
+  <!-- === FIREPROOF SHIELD BADGE === -->
+  <g transform="translate(256, 340)" filter="url(#softGlow)">
+    <!-- Shield shape -->
+    <path d="M0 -20 L35 -5 L35 15 Q35 35 0 50 Q-35 35 -35 15 L-35 -5 Z" fill="none" stroke="#FF6B35" stroke-width="2.5" opacity="0.8"/>
+    <path d="M0 -16 L30 -3 L30 14 Q30 32 0 46 Q-30 32 -30 14 L-30 -3 Z" fill="#FF6B35" opacity="0.15"/>
+
+    <!-- Flame inside shield -->
+    <path d="M0 5 Q-8 -2 -5 -10 Q-3 -15 0 -18 Q3 -15 5 -10 Q8 -2 0 5 Z" fill="#FFD700" opacity="0.7"/>
+    <path d="M0 2 Q-5 -3 -3 -8 Q-2 -11 0 -13 Q2 -11 3 -8 Q5 -3 0 2 Z" fill="#FFF8DC" opacity="0.5"/>
+
+    <!-- Checkmark -->
+    <path d="M-12 5 L-4 13 L12 -5" fill="none" stroke="#FFD700" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- === SUBTLE EMBELLISHMENTS === -->
+  <!-- Sparkle dots -->
+  <circle cx="145" cy="175" r="3" fill="#FFD700" opacity="0.6"/>
+  <circle cx="367" cy="175" r="3" fill="#FFD700" opacity="0.6"/>
+  <circle cx="256" cy="120" r="2" fill="#FFD700" opacity="0.4"/>
+
+  <!-- Decorative arc lines -->
+  <path d="M140 240 Q140 150 256 130" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.15"/>
+  <path d="M372 240 Q372 150 256 130" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.15"/>
 </svg>

@@ -1,4 +1,83 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
-  <rect width="192" height="192" rx="32" fill="#D32F2F"/>
-  <text x="96" y="116" font-family="Arial, sans-serif" font-size="100" font-weight="bold" text-anchor="middle" fill="white">💕</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2D0A0A"/>
+      <stop offset="50%" stop-color="#5C1010"/>
+      <stop offset="100%" stop-color="#8B1A1A"/>
+    </linearGradient>
+    <linearGradient id="ringGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="50%" stop-color="#F4A460"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+    <linearGradient id="ringGold2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="50%" stop-color="#DAA520"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+    <linearGradient id="flameGrad" x1="0.5" y1="1" x2="0.5" y2="0">
+      <stop offset="0%" stop-color="#FF4500"/>
+      <stop offset="40%" stop-color="#FF6B35"/>
+      <stop offset="70%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FFF8DC"/>
+    </linearGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="flameBlur">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background with safe zone for maskable -->
+  <rect width="192" height="192" rx="36" fill="url(#bg)"/>
+
+  <!-- Safety zone circle (maskable safe area) -->
+  <circle cx="96" cy="96" r="80" fill="none" stroke="#FF6B35" stroke-width="0" opacity="0"/>
+
+  <!-- Subtle radial glow -->
+  <circle cx="96" cy="86" r="60" fill="none" opacity="0.12">
+    <animate attributeName="opacity" values="0.12;0.18;0.12" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- === FLAMES === -->
+  <g filter="url(#flameBlur)" opacity="0.75">
+    <path d="M68 116 Q64 100 67 88 Q69 78 73 70 Q75 64 78 58 Q80 52 82 48 Q85 42 86 52 Q87 58 88 68 Q89 76 88 82 Q87 88 85 93 Q83 98 80 103 Q77 108 74 113 Z" fill="url(#flameGrad)" opacity="0.7"/>
+    <path d="M124 116 Q128 100 125 88 Q123 78 119 70 Q117 64 114 58 Q112 52 110 48 Q107 42 106 52 Q105 58 104 68 Q103 76 104 82 Q105 88 107 93 Q109 98 112 103 Q115 108 118 113 Z" fill="url(#flameGrad)" opacity="0.7"/>
+  </g>
+
+  <!-- === RINGS === -->
+  <g filter="url(#softGlow)">
+    <ellipse cx="80" cy="90" rx="30" ry="35" fill="none" stroke="url(#ringGold)" stroke-width="7"
+      transform="rotate(-12 80 90)"/>
+    <ellipse cx="112" cy="90" rx="30" ry="35" fill="none" stroke="url(#ringGold2)" stroke-width="7"
+      transform="rotate(12 112 90)"/>
+  </g>
+
+  <!-- Center diamond -->
+  <polygon points="96,72 104,88 96,104 88,88" fill="#FF6B35" opacity="0.9"/>
+  <polygon points="96,75 101,88 96,101 91,88" fill="#FFD700" opacity="0.4"/>
+
+  <!-- === SHIELD BADGE === -->
+  <g filter="url(#softGlow)">
+    <path d="M96 132 L108 124 L108 130 Q108 136 96 142 Q84 136 84 130 L84 124 Z" fill="none" stroke="#FF6B35" stroke-width="1.2" opacity="0.7"/>
+    <path d="M96 12 Q90 6 84 8 Q78 10 74 16 Q70 22 72 28 Q74 34 80 36" fill="none" stroke="#FFD700" stroke-width="3" stroke-linecap="round" opacity="0" stroke-dasharray="0 0"/>
+  </g>
+
+  <!-- Small flame center -->
+  <g filter="url(#flameBlur)" opacity="0.5">
+    <path d="M94 65 Q95 58 96 53 Q97 58 98 65 Q97 67 96 68 Q95 67 94 65 Z" fill="#FF6B35" opacity="0.8"/>
+  </g>
+
+  <!-- Sparkle dots -->
+  <circle cx="55" cy="65" r="1.5" fill="#FFD700" opacity="0.5"/>
+  <circle cx="137" cy="65" r="1.5" fill="#FFD700" opacity="0.5"/>
 </svg>
